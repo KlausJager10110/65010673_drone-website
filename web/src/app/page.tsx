@@ -1,0 +1,119 @@
+'use client';
+
+
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { IconReload, IconSearch } from "@tabler/icons-react";
+import { Input } from "./components/Form.component";
+import { cn } from "./lib/utils";
+
+
+
+interface CONFIG {
+  drone_id: string;
+  drone_name: string;
+  light: boolean;
+  max_speed: number;
+  country: string;
+  population: number;
+}
+
+interface SEARCH_FORM {
+  droneId?: string;
+}
+
+export default function View_Config() {
+  const [configsData, setConfigsData] = useState<CONFIG[]>([]);
+  const [reload, setReload] = useState<boolean>(false);
+  const [searchForm, setSearchForm] = useState<SEARCH_FORM>({ droneId: "" });
+  const [error, setError] = useState<boolean>(false);
+
+  const get_drone_config = async (drone_id = "") => {
+    try {
+      const configs = await axios.get(`http://localhost:8000/configs/${drone_id}`, { headers: { 'Content-Type': 'application/json' } });
+
+      if (configs.status === 200) {
+        setError(false);
+        // console.log(configs.data);
+        setConfigsData(configs.data);
+        setSearchForm({ droneId: "" });
+        setReload(false);
+      }
+
+    } catch (error) {
+      // console.log('Error fetching configs:', error);
+      setError(true);
+    }
+  }
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setConfigsData([])
+    // console.log(searchForm);
+    setError(false);
+    get_drone_config(searchForm.droneId);
+  }
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchForm({
+      droneId: e.target.value
+    });
+  }
+
+  useEffect(() => {
+    get_drone_config();
+  }, [reload]);
+
+  return (
+    <>
+      <div className="flex flex-row justify-between flex-wrap gap-4">
+        <div className="flex flex-row gap-10 justify-start items-center">
+          <div className="font-extrabold text-3xl">View Config</div>
+          <IconReload className={cn("mt-[6px] cursor-pointer", reload && "animate-spin")} onClick={() => { setError(false); setConfigsData([]); setSearchForm({ droneId: "" }); setReload(true); }} />
+        </div>
+        <form className="flex flex-row items-center gap-4" onSubmit={handleSubmit}>
+          <Input
+            id="droneId"
+            name="droneId"
+            placeholder="Search by drone Id."
+            type="text"
+            onChange={handleChange}
+            className="w-[200px]"
+            value={searchForm.droneId}
+          />
+          <button type="submit" className="flex items-center">
+            <IconSearch className="cursor-pointer" />
+          </button>
+        </form>
+      </div>
+      <div className="flex gap-2 flex-1 flex-wrap justify-center mt-8">
+        {(configsData && configsData.length > 0) ? configsData.map((config, index) => (
+          <ul
+            key={config.drone_id}
+            className="h-[300px] w-[300px] rounded-lg bg-gray-100 p-5 dark:bg-neutral-800 space-y-3"
+          >
+            <li className="text-center text-2xl font-bold flex flex-col mb-9">
+              {config.drone_id}
+              <small className="text-[0.925rem] font-normal">{config.drone_name}</small>
+            </li>
+            <li>Light Status: {config.light}</li>
+            <li>Max Speed: {config.max_speed}</li>
+            <li>Country: {config.country}</li>
+            <li>Population: {config.population}</li>
+          </ul>
+        )) : (error ? (
+          <div className="h-[100px] w-full text-2xl rounded-lg bg-gray-100 p-4 dark:bg-neutral-800 flex justify-center items-center">
+            Drone Not Found !
+          </div>
+        ) : (
+          [...new Array(8)].map((_, index) => (
+            <ul
+              key={index}
+              className="h-[300px] w-[300px] rounded-lg bg-gray-100 p-4 dark:bg-neutral-800 animate-pulse space-y-3"
+            ></ul>
+          ))))
+        }
+      </div>
+    </>
+  );
+};
