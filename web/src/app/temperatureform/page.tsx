@@ -18,7 +18,7 @@ export default function page() {
         </>
       ) : (
         <div className="flex flex-col justify-center items-center">
-          <h2 className="text-center text-2xl">Your form has been submitted successfully!</h2>
+          <h2 className="text-center text-2xl text-white">Your form has been submitted successfully!</h2>
           <button
                 className="bg-gradient-to-br mx-auto w-[50%] relative group/btn mt-8 from-zinc-900 to-zinc-900 block bg-zinc-800 text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
                 type="button"

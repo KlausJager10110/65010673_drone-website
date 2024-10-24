@@ -42,7 +42,7 @@ export default function page() {
     return (
         <>
             <div className="flex flex-row gap-10 justify-start items-center" id="view-logs-top">
-                <div className="font-extrabold text-3xl">View Logs</div>
+                <div className="font-extrabold text-3xl text-white">View Logs</div>
                 <IconReload className={cn("mt-[6px] cursor-pointer", reload && "animate-spin")} onClick={() => { setReload(true); setLogsData([]); }} />
             </div>
             <table className="table-auto mt-12 border border-slate-300 rounded-lg">
