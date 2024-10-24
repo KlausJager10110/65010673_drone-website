@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { BottomGradient, Form } from '../components/Form.component'
 
 export default function TempFormPage() {
-  const [success, setSuccess] = useState<Boolean>(false);
+  const [success, setSuccess] = useState<boolean>(false);
 
   return (
     <div className="max-w-2xl w-full mx-auto rounded-2xl p-8 shadow-input bg-black">

@@ -14,8 +14,9 @@ interface LOG {
     created: string;
 }
 
-export default function page() {
-    const [logsData, setLogsData] = useState<LOG[]>();
+export default function ViewLogsPage() {
+
+    const [logsData, setLogsData] = useState<LOG[]>([]);
     const [reload, setReload] = useState<boolean>(false);
     const [page, setPage] = useState<number>(1);
     const [totalPages, setTotalPages] = useState<number>(1);
@@ -36,7 +37,7 @@ export default function page() {
 
     useEffect(() => {
         get_logs_data();
-    }, [reload, page, get_logs_data])
+    }, [reload, page])
 
 
     return (

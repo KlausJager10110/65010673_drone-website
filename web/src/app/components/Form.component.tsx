@@ -186,3 +186,5 @@ export const Label = React.forwardRef<
         {...props}
     />
 ));
+
+Label.displayName = "Label";
