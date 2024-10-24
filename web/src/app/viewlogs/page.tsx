@@ -14,7 +14,7 @@ interface LOG {
     created: string;
 }
 
-export function ViewLogsPage(): JSX.Element {
+export default function ViewLogsPage(): JSX.Element {
 
     const [logsData, setLogsData] = useState<LOG[]>([]);
     const [reload, setReload] = useState<boolean>(false);
@@ -41,7 +41,7 @@ export function ViewLogsPage(): JSX.Element {
 
 
     return (
-        <>
+        <div>
             <div className="flex flex-row gap-10 justify-start items-center" id="view-logs-top">
                 <div className="font-extrabold text-3xl text-white">View Logs</div>
                 <IconReload className={cn("mt-[6px] cursor-pointer", reload && "animate-spin")} onClick={() => { setReload(true); setLogsData([]); }} />
@@ -49,7 +49,6 @@ export function ViewLogsPage(): JSX.Element {
             <table className="table-auto mt-12 border border-slate-300 rounded-lg">
                 <thead>
                     <tr className="border border-slate-300">
-                        {/* <th className="text-start p-3 bg-neutral-800">Idx</th> */}
                         <th className="text-start p-3 bg-neutral-800 text-white">Drone ID</th>
                         <th className="text-start p-3 bg-neutral-800 text-white">Drone Name</th>
                         <th className="text-start p-3 bg-neutral-800 text-white">Country</th>
@@ -60,7 +59,6 @@ export function ViewLogsPage(): JSX.Element {
                 <tbody>
                     {(logsData && logsData.length > 0) ? logsData.map((log, index) => (
                         <tr key={index}>
-                            {/* <td className="text-center">{index + 1}</td> */}
                             <td className="p-2 text-white">{log.drone_id}</td>
                             <td className="p-2 text-white">{log.drone_name}</td>
                             <td className="p-2 text-white">{log.country}</td>
@@ -86,6 +84,6 @@ export function ViewLogsPage(): JSX.Element {
             <div className="w-full flex flex-row justify-center items-center">
                 <Pagination totalPages={totalPages} setPage={setPage} />
             </div>
-        </>
+        </div>
     )
 }
