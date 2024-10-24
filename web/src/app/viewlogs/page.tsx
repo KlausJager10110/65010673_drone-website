@@ -46,7 +46,7 @@ export default function ViewLogsPage(): JSX.Element {
                 <div className="font-extrabold text-3xl text-white">View Logs</div>
                 <IconReload className={cn("mt-[6px] cursor-pointer", reload && "animate-spin")} onClick={() => { setReload(true); setLogsData([]); }} />
             </div>
-            <table className="table-auto mt-12 border border-slate-300 rounded-lg">
+            <table className="table-auto w-full mt-12 border border-slate-300 rounded-lg">
                 <thead>
                     <tr className="border border-slate-300">
                         <th className="text-start p-3 bg-neutral-800 text-white">Drone ID</th>
