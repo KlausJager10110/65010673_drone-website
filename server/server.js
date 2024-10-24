@@ -5,7 +5,7 @@ const cors = require('cors')
 
 // Declare variable Zone
 const server = express();
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
 server.use(express.json());
 server.use(cors());
