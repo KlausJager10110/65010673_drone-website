@@ -12,7 +12,7 @@ interface TEMPFORMDATA {
     country: string,
 }
 
-export const Form = ({ setSuccess }: { setSuccess: Function }): JSX.Element => {
+export const Form = ({ setSuccess }: { setSuccess: (success: boolean) => void }): JSX.Element => {
 
     const [tempFormData, setTempFormData] = useState<TEMPFORMDATA>({
         temperature: null,
@@ -151,10 +151,7 @@ const LabelInputContainer = ({
     );
 };
 
-export interface InputProps
-    extends React.InputHTMLAttributes<HTMLInputElement> { }
-
-export const Input = React.forwardRef<HTMLInputElement, InputProps>(
+export const Input = React.forwardRef<HTMLInputElement, React.InputHTMLAttributes<HTMLInputElement>>(
     ({ className, type, ...props }, ref) => {
         return (
             <input
@@ -173,6 +170,8 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         );
     }
 );
+
+Input.displayName = "Input";
 
 export const Label = React.forwardRef<
     HTMLLabelElement,
