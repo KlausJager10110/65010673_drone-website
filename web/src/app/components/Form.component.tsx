@@ -43,8 +43,17 @@ export const Form = ({ setSuccess }: { setSuccess: (success: boolean) => void })
                 drone_name: data.droneName,
                 country: data.country,
             };
+            // const response = await axios.post(
+            //     "http://localhost:8000/logs",
+            //     form_Data,
+            //     {
+            //         headers: {
+            //             "Content-Type": "application/json",
+            //         },
+            //     }
+            // );
             const response = await axios.post(
-                "http://localhost:8000/logs",
+                "https://65010673-drone-website-server-87z0lt8eh-klausjager101s-projects.vercel.app/logs",
                 form_Data,
                 {
                     headers: {

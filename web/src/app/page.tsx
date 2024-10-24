@@ -30,7 +30,8 @@ export default function Page() {
 
   const get_drone_config = async (drone_id = "65010673") => {
     try {
-      const configs = await axios.get(`http://localhost:8000/configs/${drone_id}`, { headers: { 'Content-Type': 'application/json' } });
+      // const configs = await axios.get(`http://localhost:8000/configs/${drone_id}`, { headers: { 'Content-Type': 'application/json' } });
+      const configs = await axios.get(`https://65010673-drone-website-server-87z0lt8eh-klausjager101s-projects.vercel.app/configs/${drone_id}`, { headers: { 'Content-Type': 'application/json' } });
 
       if (configs.status === 200) {
         setError(false);
