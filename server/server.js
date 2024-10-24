@@ -17,3 +17,5 @@ readdirSync("./Routes").map((r) => server.use(require("./Routes/" + r)));
 server.listen(PORT, async () => {
     console.log(`Server is running on port ${PORT} \n URL: http://localhost:${PORT}`);
 });
+
+module.exports = server;
