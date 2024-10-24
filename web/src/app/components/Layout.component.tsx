@@ -17,21 +17,21 @@ export default function Layout({ children }: { children: React.ReactNode; }) {
             label: "View Config",
             href: "/",
             icon: (
-                <IconDrone className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+                <IconDrone className="text-neutral-200 h-5 w-5 flex-shrink-0" />
             ),
         },
         {
             label: "Temperature Form",
             href: "/temperatureform",
             icon: (
-                <IconForms className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+                <IconForms className="text-neutral-200 h-5 w-5 flex-shrink-0" />
             ),
         },
         {
             label: "View Logs",
             href: "/viewlogs",
             icon: (
-                <IconBrandTabler className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+                <IconBrandTabler className="text-neutral-200 h-5 w-5 flex-shrink-0" />
             ),
         },
     ];
@@ -39,7 +39,7 @@ export default function Layout({ children }: { children: React.ReactNode; }) {
     return (
         <div
             className={cn(
-                "flex flex-col md:flex-row bg-gray-100 dark:bg-neutral-800 w-full flex-1 max-w-[100vw] border border-neutral-200 dark:border-neutral-700 overflow-hidden pt-4 pr-4 pl-4 md:pl-0",
+                "flex flex-col md:flex-row bg-neutral-800 w-full flex-1 max-w-[100vw] border border-neutral-700 overflow-hidden pt-4 pr-4 pl-4 md:pl-0",
                 "h-screen" // for your use case, use `h-screen` instead of `h-[60vh]`
             )}
         >
@@ -56,7 +56,7 @@ export default function Layout({ children }: { children: React.ReactNode; }) {
                 </SidebarBody>
             </Sidebar>
             <div className="flex flex-1">
-                <div className="p-2 md:p-10 rounded-t-2xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 flex flex-col gap-2 w-full h-full overflow-auto">
+                <div className="p-2 md:p-10 rounded-t-2xl border border-neutral-700 bg-neutral-900 flex flex-col gap-2 w-full h-full overflow-auto">
                     {children}
                 </div>
             </div>
@@ -70,11 +70,11 @@ export const Logo = () => {
             href="/"
             className="font-normal flex space-x-2 items-center text-sm text-black py-1 relative z-20"
         >
-            <div className="h-5 w-6 bg-black dark:bg-white rounded-br-lg rounded-tr-sm rounded-tl-lg rounded-bl-sm flex-shrink-0" />
+            <div className="h-5 w-6 bg-white rounded-br-lg rounded-tr-sm rounded-tl-lg rounded-bl-sm flex-shrink-0" />
             <motion.span
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="font-medium text-black dark:text-white whitespace-pre"
+                className="font-medium text-white whitespace-pre"
             >
                 65010673
             </motion.span>
@@ -87,7 +87,7 @@ export const LogoIcon = () => {
             href="#"
             className="font-normal flex space-x-2 items-center text-sm text-black py-1 relative z-20"
         >
-            <div className="h-5 w-6 bg-black dark:bg-white rounded-br-lg rounded-tr-sm rounded-tl-lg rounded-bl-sm flex-shrink-0" />
+            <div className="h-5 w-6 bg-white rounded-br-lg rounded-tr-sm rounded-tl-lg rounded-bl-sm flex-shrink-0" />
         </Link>
     );
 };

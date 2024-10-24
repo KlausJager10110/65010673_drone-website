@@ -42,29 +42,29 @@ export default function page() {
     return (
         <>
             <div className="flex flex-row gap-10 justify-start items-center" id="view-logs-top">
-                <div className="font-extrabold text-3xl">View Logs</div>
+                <div className="font-extrabold text-3xl text-white">View Logs</div>
                 <IconReload className={cn("mt-[6px] cursor-pointer", reload && "animate-spin")} onClick={() => { setReload(true); setLogsData([]); }} />
             </div>
             <table className="table-auto mt-12 border border-slate-300 rounded-lg">
                 <thead>
                     <tr className="border border-slate-300">
                         {/* <th className="text-start p-3 bg-neutral-800">Idx</th> */}
-                        <th className="text-start p-3 bg-neutral-800">Drone ID</th>
-                        <th className="text-start p-3 bg-neutral-800">Drone Name</th>
-                        <th className="text-start p-3 bg-neutral-800">Country</th>
-                        <th className="text-start p-3 bg-neutral-800">Celsius</th>
-                        <th className="text-start p-3 bg-neutral-800">Created</th>
+                        <th className="text-start p-3 bg-neutral-800 text-white">Drone ID</th>
+                        <th className="text-start p-3 bg-neutral-800 text-white">Drone Name</th>
+                        <th className="text-start p-3 bg-neutral-800 text-white">Country</th>
+                        <th className="text-start p-3 bg-neutral-800 text-white">Celsius</th>
+                        <th className="text-start p-3 bg-neutral-800 text-white">Created</th>
                     </tr>
                 </thead>
                 <tbody>
                     {(logsData && logsData.length > 0) ? logsData.map((log, index) => (
                         <tr key={index}>
                             {/* <td className="text-center">{index + 1}</td> */}
-                            <td className="p-2">{log.drone_id}</td>
-                            <td className="p-2">{log.drone_name}</td>
-                            <td className="p-2">{log.country}</td>
-                            <td className="p-2">{log.celsius}</td>
-                            <td className="p-2">{new Date(log.created).toLocaleString()}</td>
+                            <td className="p-2 text-white">{log.drone_id}</td>
+                            <td className="p-2 text-white">{log.drone_name}</td>
+                            <td className="p-2 text-white">{log.country}</td>
+                            <td className="p-2 text-white">{log.celsius}</td>
+                            <td className="p-2 text-white">{new Date(log.created).toLocaleString()}</td>
                         </tr>
                     )) : (
                         [...new Array(1)].map((_, index) => (
@@ -72,12 +72,11 @@ export default function page() {
                                 key={index}
                                 className="h-[50px]"
                             >
-                                {/* <td className="bg-gray-100 dark:bg-neutral-800 animate-pulse"></td> */}
-                                <td className="bg-gray-100 dark:bg-neutral-800 animate-pulse"></td>
-                                <td className="bg-gray-100 dark:bg-neutral-800 animate-pulse"></td>
-                                <td className="bg-gray-100 dark:bg-neutral-800 animate-pulse"></td>
-                                <td className="bg-gray-100 dark:bg-neutral-800 animate-pulse"></td>
-                                <td className="bg-gray-100 dark:bg-neutral-800 animate-pulse"></td>
+                                <td className="bg-neutral-800 animate-pulse"></td>
+                                <td className="bg-neutral-800 animate-pulse"></td>
+                                <td className="bg-neutral-800 animate-pulse"></td>
+                                <td className="bg-neutral-800 animate-pulse"></td>
+                                <td className="bg-neutral-800 animate-pulse"></td>
                             </tr>
                         )
                         ))}

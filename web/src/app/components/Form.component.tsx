@@ -110,7 +110,7 @@ export default function Form({ setSuccess }: { setSuccess: Function }) {
             </div>
 
             <button
-                className="bg-gradient-to-br relative group/btn mt-8 from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
+                className="bg-gradient-to-br relative group/btn mt-8 from-zinc-900 to-zinc-900 block bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
                 type="submit"
             >
                 Send &rarr;
@@ -152,11 +152,11 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             <input
                 type={type}
                 className={cn(
-                    `flex h-10 w-full border-none bg-gray-50 dark:bg-zinc-800 text-black dark:text-white rounded-md px-3 py-2 text-sm  file:border-0 file:bg-transparent 
-                    file:text-sm file:font-medium placeholder:text-neutral-400 dark:placeholder-text-neutral-600 
-                    focus-visible:outline-none focus-visible:ring-[2px]  focus-visible:ring-neutral-400 dark:focus-visible:ring-neutral-600
+                    `flex h-10 w-full border-none bg-zinc-800 text-white rounded-md px-3 py-2 text-sm  file:border-0 file:bg-transparent 
+                    file:text-sm file:font-medium placeholder-text-neutral-600 
+                    focus-visible:outline-none focus-visible:ring-[2px] focus-visible:ring-neutral-600
                     disabled:cursor-not-allowed disabled:opacity-50
-                    dark:shadow-[0px_0px_1px_1px_var(--neutral-700)]`,
+                    shadow-[0px_0px_1px_1px_var(--neutral-700)]`,
                     className
                 )}
                 ref={ref}
@@ -173,7 +173,7 @@ export const Label = React.forwardRef<
     <label
         ref={ref}
         className={cn(
-            "text-sm font-medium text-black dark:text-white leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
+            "text-sm font-medium text-white leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
             className
         )}
         {...props}

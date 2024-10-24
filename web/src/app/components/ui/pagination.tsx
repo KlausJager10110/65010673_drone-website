@@ -22,18 +22,18 @@ export function Pagination({ totalPages = 10, setPage }: { totalPages: number, s
                 disabled={active === 1}
                 className={cn("border-2 p-1 rounded-md border-stone-50", active === 1 && "border-stone-400")}
             >
-                <ArrowLeftIcon strokeWidth={2} className={cn("h-4 w-4 dark:text-stone-50", active === totalPages && "text-stone-400")} />
+                <ArrowLeftIcon strokeWidth={2} className={cn("h-4 w-4 text-stone-50", active === totalPages && "text-stone-400")} />
             </button>
-            <div className="font-normal">
-                Page <strong className=" dark:text-white">{active}</strong> of{" "}
-                <strong className="dark:text-white">{totalPages}</strong>
+            <div className="font-normal text-white">
+                Page <strong className=" text-white">{active}</strong> of{" "}
+                <strong className="text-white">{totalPages}</strong>
             </div>
             <button
                 onClick={() => { next(); setPage(active); }}
                 disabled={active === totalPages}
                 className={cn("border-2 p-1 rounded-md border-stone-50", active === totalPages && "border-stone-400")}
             >
-                <ArrowRightIcon strokeWidth={2} className={cn("h-4 w-4 dark:text-stone-50", active === totalPages && "text-stone-400")} />
+                <ArrowRightIcon strokeWidth={2} className={cn("h-4 w-4 text-stone-50", active === totalPages && "text-stone-400")} />
             </button>
         </div>
     );
