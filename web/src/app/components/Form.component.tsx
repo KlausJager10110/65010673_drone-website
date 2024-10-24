@@ -53,7 +53,7 @@ export const Form = ({ setSuccess }: { setSuccess: (success: boolean) => void })
             //     }
             // );
             const response = await axios.post(
-                "https://65010673-drone-website-server-87z0lt8eh-klausjager101s-projects.vercel.app/logs",
+                "https://65010673-drone-website-server.vercel.app/logs",
                 form_Data,
                 {
                     headers: {

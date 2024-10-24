@@ -24,7 +24,7 @@ export default function ViewLogsPage(): JSX.Element {
     const get_logs_data = async () => {
         try {
             // const logs = await axios.get(`http://localhost:8000/logs/${page}`, { headers: { 'Content-Type': 'application/json' } });
-            const logs = await axios.get(`https://65010673-drone-website-server-87z0lt8eh-klausjager101s-projects.vercel.app/logs/${page}`, { headers: { 'Content-Type': 'application/json' } });
+            const logs = await axios.get(`https://65010673-drone-website-server.vercel.app/logs/${page}`, { headers: { 'Content-Type': 'application/json' } });
             if (logs) {
                 // console.log(logs.data);
                 setLogsData(logs.data.drone_logs);
