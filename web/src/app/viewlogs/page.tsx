@@ -36,7 +36,7 @@ export default function page() {
 
     useEffect(() => {
         get_logs_data();
-    }, [reload, page])
+    }, [reload, page, get_logs_data])
 
 
     return (

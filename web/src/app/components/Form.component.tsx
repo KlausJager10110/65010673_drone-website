@@ -1,6 +1,6 @@
 "use client"
 
-import * as React from "react";
+import React, { useState } from "react";
 import { cn } from "../lib/utils";
 import axios from "axios";
 
@@ -14,7 +14,7 @@ interface TEMPFORMDATA {
 
 export const Form = ({ setSuccess }: { setSuccess: Function }): JSX.Element => {
 
-    const [tempFormData, setTempFormData] = React.useState<TEMPFORMDATA>({
+    const [tempFormData, setTempFormData] = useState<TEMPFORMDATA>({
         temperature: null,
         droneId: 65010673,
         droneName: "PACHARAPOL",

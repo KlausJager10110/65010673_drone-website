@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import { BottomGradient, Form } from '../components/Form.component'
 
-export default function page() {
+export default function TempFormPage() {
   const [success, setSuccess] = useState<Boolean>(false);
 
   return (
