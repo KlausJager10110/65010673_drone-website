@@ -22,7 +22,7 @@ interface SEARCH_FORM {
   droneId?: string;
 }
 
-export default function View_Config() {
+export default function Page() {
   const [configsData, setConfigsData] = useState<CONFIG[]>([]);
   const [reload, setReload] = useState<boolean>(false);
   const [searchForm, setSearchForm] = useState<SEARCH_FORM>({ droneId: "" });
@@ -41,7 +41,7 @@ export default function View_Config() {
       }
 
     } catch (error) {
-      // console.log('Error fetching configs:', error);
+      console.log('Error fetching configs:', error);
       setError(true);
     }
   }
@@ -87,7 +87,7 @@ export default function View_Config() {
         </form>
       </div>
       <div className="flex gap-2 flex-1 flex-wrap justify-center mt-8">
-        {(configsData && configsData.length > 0) ? configsData.map((config, index) => (
+        {(configsData && configsData.length > 0) ? configsData.map((config) => (
           <ul
             key={config.drone_id}
             className="h-[300px] w-[300px] text-white p-4 rounded-lg bg-neutral-800 space-y-3"

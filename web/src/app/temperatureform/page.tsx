@@ -1,10 +1,10 @@
 'use client'
 
 import React, { useState } from 'react'
-import Form, { BottomGradient } from '../components/Form.component'
+import { BottomGradient, Form } from '../components/Form.component'
 
 export default function page() {
-  const [success, setSuccess] = useState<boolean>(false);
+  const [success, setSuccess] = useState<Boolean>(false);
 
   return (
     <div className="max-w-2xl w-full mx-auto rounded-2xl p-8 shadow-input bg-black">

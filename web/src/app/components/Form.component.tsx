@@ -4,9 +4,17 @@ import * as React from "react";
 import { cn } from "../lib/utils";
 import axios from "axios";
 
-export default function Form({ setSuccess }: { setSuccess: Function }) {
 
-    const [tempFormData, setTempFormData] = React.useState({
+interface TEMPFORMDATA {
+    temperature: number | null,
+    droneId: number,
+    droneName: string,
+    country: string,
+}
+
+export const Form = ({ setSuccess }: { setSuccess: Function }): JSX.Element => {
+
+    const [tempFormData, setTempFormData] = React.useState<TEMPFORMDATA>({
         temperature: null,
         droneId: 65010673,
         droneName: "PACHARAPOL",
@@ -27,7 +35,7 @@ export default function Form({ setSuccess }: { setSuccess: Function }) {
 
     };
 
-    async function sendTempFormData(data: { [key: string]: any }) {
+    async function sendTempFormData(data: TEMPFORMDATA) {
         try {
             const form_Data = {
                 celsius: data.temperature,
