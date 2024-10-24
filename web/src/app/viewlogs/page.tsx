@@ -14,7 +14,7 @@ interface LOG {
     created: string;
 }
 
-export default function ViewLogsPage() {
+export function ViewLogsPage() {
 
     const [logsData, setLogsData] = useState<LOG[]>([]);
     const [reload, setReload] = useState<boolean>(false);
