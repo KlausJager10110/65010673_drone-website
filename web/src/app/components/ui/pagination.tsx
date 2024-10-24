@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
 import { cn } from "@/app/lib/utils";
 
-export function Pagination({ totalPages = 10, setPage }: { totalPages: number, setPage: Function }): JSX.Element {
+export function Pagination({ totalPages = 10, setPage }: { totalPages: number, setPage: (page: number) => void }): JSX.Element {
     const [active, setActive] = useState<number>(1);
 
     const next = () => {
