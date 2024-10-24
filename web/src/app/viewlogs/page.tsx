@@ -41,7 +41,7 @@ export default function ViewLogsPage(): JSX.Element {
 
 
     return (
-        <div>
+        <>
             <div className="flex flex-row gap-10 justify-start items-center" id="view-logs-top">
                 <div className="font-extrabold text-3xl text-white">View Logs</div>
                 <IconReload className={cn("mt-[6px] cursor-pointer", reload && "animate-spin")} onClick={() => { setReload(true); setLogsData([]); }} />
@@ -84,6 +84,6 @@ export default function ViewLogsPage(): JSX.Element {
             <div className="w-full flex flex-row justify-center items-center">
                 <Pagination totalPages={totalPages} setPage={setPage} />
             </div>
-        </div>
+        </>
     )
 }
