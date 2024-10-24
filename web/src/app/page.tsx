@@ -68,7 +68,7 @@ export default function View_Config() {
     <>
       <div className="flex flex-row justify-between flex-wrap gap-4">
         <div className="flex flex-row gap-10 justify-start items-center">
-          <div className="font-extrabold text-3xl">View Config</div>
+          <div className="font-extrabold text-3xl text-white">View Config</div>
           <IconReload className={cn("mt-[6px] cursor-pointer", reload && "animate-spin")} onClick={() => { setError(false); setConfigsData([]); setSearchForm({ droneId: "" }); setReload(true); }} />
         </div>
         <form className="flex flex-row items-center gap-4" onSubmit={handleSubmit}>
@@ -82,7 +82,7 @@ export default function View_Config() {
             value={searchForm.droneId}
           />
           <button type="submit" className="flex items-center">
-            <IconSearch className="cursor-pointer" />
+            <IconSearch className="cursor-pointer text-white" />
           </button>
         </form>
       </div>
@@ -90,7 +90,7 @@ export default function View_Config() {
         {(configsData && configsData.length > 0) ? configsData.map((config, index) => (
           <ul
             key={config.drone_id}
-            className="h-[300px] w-[300px] rounded-lg bg-gray-100 p-5 dark:bg-neutral-800 space-y-3"
+            className="h-[300px] w-[300px] rounded-lg bg-neutral-800 space-y-3"
           >
             <li className="text-center text-2xl font-bold flex flex-col mb-9">
               {config.drone_id}
@@ -102,14 +102,14 @@ export default function View_Config() {
             <li>Population: {config.population}</li>
           </ul>
         )) : (error ? (
-          <div className="h-[100px] w-full text-2xl rounded-lg bg-gray-100 p-4 dark:bg-neutral-800 flex justify-center items-center">
+          <div className="h-[100px] text-white w-full text-2xl rounded-lg p-4 bg-neutral-800 flex justify-center items-center">
             Drone Not Found !
           </div>
         ) : (
           [...new Array(8)].map((_, index) => (
             <ul
               key={index}
-              className="h-[300px] w-[300px] rounded-lg bg-gray-100 p-4 dark:bg-neutral-800 animate-pulse space-y-3"
+              className="h-[300px] w-[300px] rounded-lg p-4 bg-neutral-800 animate-pulse space-y-3"
             ></ul>
           ))))
         }
